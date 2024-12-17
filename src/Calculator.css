@@ -1,0 +1,33 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+input, select, button {
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #0f6f98;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    color: #4CAF50;
+}
