@@ -1,33 +1,182 @@
-.calculator {
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #000814, #001d3d, #003566, #ffc300, #ffd60a, #ae1111, #e0e7f0, #0065fc, #000814);
+    background-size: 400% 400%; /* Gradient'in boyutunu büyüt */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: smoothGradientFlow 15s ease infinite;
+  }
+  
+  @keyframes smoothGradientFlow {
+    0% {
+      background-position: 0% 50%; /* Başlangıç pozisyonu */
+    }
+    50% {
+      background-position: 100% 50%; /* Orta pozisyon */
+    }
+    100% {
+      background-position: 0% 50%; /* Bitiş pozisyonu */
+    }
+  }
+  .calculator-container {
+    background: rgba(255, 255, 255, 0.547);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  h1 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #333;
+    animation: slideDown 0.6s ease-in-out;
+  }
+  
+  .input-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    font-family: Arial, sans-serif;
-}
-
-input, select, button {
-    margin: 10px;
-    padding: 10px;
-    width: 200px;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .calculator-input {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
     font-size: 16px;
-}
-
-button {
-    background-color: #0f6f98;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+  }
+  
+  .calculator-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.25);
+    outline: none;
+    background: #fff;
+  }
+  
+  .operation-select {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+    appearance: none; /* Tarayıcı varsayılan stilini kaldır */
+  }
+  
+  .operation-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.25);
+    outline: none;
+    background: #fff;
+  }
+  
+  .calculate-button {
+    padding: 14px 28px;
+    background: #c80b0b;
     color: white;
     border: none;
+    border-radius: 10px;
+    font-size: 16px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-h1 {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .calculate-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+  }
+  
+  .calculate-button:hover {
+    background: #2def02ca;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3);
+  }
+  
+  .calculate-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  .calculate-button:active::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  
+  .result {
+    margin-top: 25px;
+    font-size: 20px;
     color: #333;
-}
-
-h2 {
-    color: #4CAF50;
-}
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Ekstra animasyonlar */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .calculator-container {
+    animation: float 4s ease-in-out infinite;
+  }
